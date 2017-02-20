@@ -80,27 +80,39 @@ class TaskListsPageContainer extends React.Component {
       this.setState({  isModalOpen: false });
    }
 
+   renderTaskListPage() {
+      return (
+         <TaskListsPage
+            onSearch={this.handleSearch.bind(this)}
+            taskList={this.props.taskList}
+            currentTaskListId={this.props.params.taskId}
+            children={this.props.children}
+            onAddTaskList={this.handleTaskListAdd.bind(this)}
+            onDeleteTaskList={this.handleTaskListDelete.bind(this)}
+            onEditTaskList={this.handleTaskListEdit.bind(this)}
+            onRouteChange={this.handleRouteChange.bind(this)}
+            isTaskEdited={this.props.isTaskEdited}
+            onTaskRelocate={this.handleTaskRelocate.bind(this)}
+            totalTaskListsChecked={this.props.totalTaskListsChecked}
+         />
+      );
+   }
+
+   renderConfirmModal() {
+      return (
+         <ConfirmModal
+            isOpen={this.state.isModalOpen}
+            onSubmit={this.handleDeleteSubmit.bind(this)}
+            onClose={this.handleDeleteCancel.bind(this)}
+         />
+      );
+   }
+
    render() {
       return (
          <div>
-            <TaskListsPage
-               onSearch={this.handleSearch.bind(this)}
-               taskList={this.props.taskList}
-               currentTaskListId={this.props.params.taskId}
-               children={this.props.children}
-               onAddTaskList={this.handleTaskListAdd.bind(this)}
-               onDeleteTaskList={this.handleTaskListDelete.bind(this)}
-               onEditTaskList={this.handleTaskListEdit.bind(this)}
-               onRouteChange={this.handleRouteChange.bind(this)}
-               isTaskEdited={this.props.isTaskEdited}
-               onTaskRelocate={this.handleTaskRelocate.bind(this)}
-               totalTaskListsChecked={this.props.totalTaskListsChecked}
-            />
-            <ConfirmModal
-               isOpen={this.state.isModalOpen}
-               onSubmit={this.handleDeleteSubmit.bind(this)}
-               onClose={this.handleDeleteCancel.bind(this)}
-            />
+            {this.renderTaskListPage()}
+            {this.renderConfirmModal()}
          </div>
       );
    }
