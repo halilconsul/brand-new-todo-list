@@ -1,0 +1,36 @@
+@import '../style/variables.scss';
+
+.TasksPage {
+   .TasksPage__activeTasks {
+      .TasksPage__action {
+         display: flex;
+         justify-content: flex-end;
+         padding: $base-padding/2 0;
+
+         .TasksPage__history {
+            padding-top: $base-padding/2;
+            margin-right: $base-margin*3.5;
+
+            .TasksPage__icon {
+               margin: 0 $base-margin/4;
+               border: none;
+               background-color: transparent;
+               cursor: pointer;
+               transition: all .1s;
+            }
+         }
+
+         .addField {
+            padding: $base-padding/2 0;
+         }
+      }
+
+      .TasksPage__tasks {
+         padding: $base-padding/4 $base-padding/2;
+         border: 1px solid $lightSilver;
+         height: 600px;
+         overflow: scroll;
+         overflow-x: hidden;
+      }
+   }
+}

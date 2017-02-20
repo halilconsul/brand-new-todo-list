@@ -1,0 +1,22 @@
+@import '../style/variables.scss';
+
+.Task {
+   width: 100%;
+   padding: 0 $base-padding/1.3;
+   margin-bottom: $base-margin/10;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid $lightSilver;
+
+   .Task__action {
+      width: 60px;
+   }
+
+   .Task__title {
+      text-align: left;
+      padding-left: $base-padding/4;
+      width: 420px;
+   }
+}

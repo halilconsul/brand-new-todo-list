@@ -1,0 +1,20 @@
+@import '../style/variables.scss';
+
+.TasksPageEdit {
+   .TasksPageEdit__control {
+      padding: $base-padding 0;
+      text-align: right;
+   }
+   .TasksPageEdit__container {
+      padding: $base-padding/2;
+
+      .TasksPageEdit__title {
+         padding-top: $base-padding*2;
+
+         .TasksPageEdit__icon {
+            margin: $base-margin/2 0;
+            max-width: 40px;
+         }
+      }
+   }
+}

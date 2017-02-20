@@ -1,0 +1,9 @@
+@import '../style/variables.scss';
+
+.ConfirmModal {
+   text-align: center;
+
+   .ConfirmModal__text {
+      padding-top: $base-padding;
+   }
+}

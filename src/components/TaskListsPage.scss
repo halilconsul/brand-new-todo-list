@@ -1,0 +1,44 @@
+@import '../style/variables.scss';
+
+.TaskListsPage {
+   .TaskListsPage__header {
+      display: flex;
+      justify-content: space-between;
+      .TaskListsPage__action {
+         padding: $base-padding/2 0;
+
+         .addField {
+            padding: $base-padding/2 0;
+         }
+      }
+   }
+   .TasklistsPage__tasks {
+      float: left;
+      width: 360px;
+
+      .TaskListsPage__action {
+         padding: $base-padding/2 0;
+
+         .addField {
+            padding: $base-padding/2 0;
+         }
+      }
+
+      .TasklistsPage__taskList {
+         padding: $base-padding/4;
+         border: 1px solid $lightSilver;
+         height: 600px;
+         overflow: scroll;
+         overflow-x: hidden;
+
+         .TasklistsPage__ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+         }
+      }
+   }
+   .TaskListsPage__children {
+      margin-left: $base-margin*18.5;
+   }
+}

@@ -1,0 +1,51 @@
+@import './variables.scss';
+
+.icon {
+   padding: $base-padding/10;
+   cursor: pointer;
+
+   &:hover {
+      background-color: $blue;
+      border-radius: 50%;
+   }
+}
+
+.button {
+   border: none;
+   outline: none;
+   margin-left: 5px;
+   cursor: pointer;
+   &:hover {
+      background-color: $blue;
+   }
+}
+
+.button_sm {
+   padding: $base-padding/5;
+}
+
+.button_md {
+   padding: $base-padding/4;
+}
+
+.button_lg {
+   padding: $base-padding/2;
+}
+
+.inputField {
+   outline: none;
+   border: 1px solid $silver;
+}
+
+.inputField_lg {
+   padding: $base-padding/2;
+   width: 250px;
+}
+
+.textarea {
+   padding: 10px;
+   width: 350px;
+   height: 200px;
+   outline: none;
+   resize: vertical;
+}
