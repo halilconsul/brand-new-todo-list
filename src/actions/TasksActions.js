@@ -37,6 +37,7 @@ const TasksPageActions = {
    },
 
    getCurrentTask(params) {
+      console.log(params);
       return {
          type: AppConstants.GET_CURRENT_TASK_FULFILLED,
          payload: params

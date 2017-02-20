@@ -32,5 +32,12 @@
          overflow: scroll;
          overflow-x: hidden;
       }
+
+      .TasksPage__notFound {
+         margin-top: $base-margin*3;
+         text-align: center;
+         padding: $base-padding;
+         color: $silver;
+      }
    }
 }

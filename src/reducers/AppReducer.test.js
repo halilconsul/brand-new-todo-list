@@ -14,15 +14,38 @@ describe('App Reducer', () => {
       expect(newState.currentTaskListId).toEqual(newTaskListId);
    });
 
-   // it('should get currentTaskId when passed GET_CURRENT_TASK_FULFILLED', () => {
-   //    const initialState = {
-   //       currentTaskId: 'oldTaskId'
-   //    };
-   //    const newTaskId = 'newTaskId';
-   //    const action = TasksActions.getCurrentTask(newTaskId);
-   //    const newState = AppReducer(initialState, action);
-   //    expect(newState.currentTaskId).toEqual(newTaskId);
-   // });
+   it('should get currentTaskId when passed GET_CURRENT_TASK_FULFILLED', () => {
+      const initialState = {
+         task: [
+            {
+               "id": 101,
+               "title": 'Learn something new',
+               "isComplete": true
+            },
+            {
+               "id": 102,
+               "title": 'Learn something',
+               "isComplete": true
+            },
+            {
+               "id": 103,
+               "title": 'Learn',
+               "isComplete": false
+            }
+         ]
+      };
+
+      const currentTaskId = '102';
+
+      const action = TasksActions.getCurrentTask(currentTaskId);
+      const newState = AppReducer(initialState, action);
+
+      const currentTaskIndex = initialState.task.findIndex(task => task.id == currentTaskId);
+      const currentTask = initialState.task[currentTaskIndex];
+      expect(newState.task[currentTaskIndex].id).toEqual(currentTask.id);
+      expect(newState.task[currentTaskIndex].title).toEqual(currentTask.title);
+      expect(newState.task[currentTaskIndex].isComplete).toEqual(currentTask.isComplete);
+   });
 
    it('should turn editor on when passed OPEN_TASK_EDITOR_FULFILLED', () => {
       const initialState = {

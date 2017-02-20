@@ -44,35 +44,57 @@ class TasksPage extends React.Component {
       );
    }
 
-   renderSearchedTasks() {
+   renderFoundTasks(searchedTasks) {
       return (
          <div className="TasksPage__tasks">
             <FlipMove>
-               {this.props.searchedTasks.map(task => this.returnTask(task))}
+               {searchedTasks.map(task => this.returnTask(task))}
             </FlipMove>
          </div>
-      )
+      );
+   }
+
+   renderNoTasksFound() {
+      return (
+         <h3 className="TasksPage__notFound">Sorry... no tasks found</h3>
+      );
+   }
+
+   renderSearchedTasks(searchedTasks) {
+      if (searchedTasks.length > 0) {
+         return this.renderFoundTasks(searchedTasks);
+      } else {
+         return this.renderNoTasksFound();
+      }
+   }
+
+   showTasks() {
+      return (
+         <div className="TasksPage__tasks">
+            <FlipMove>
+               {this.props.currentTaskList.map(task => this.returnTask(task))}
+            </FlipMove>
+         </div>
+      );
+   }
+
+   showEmptyField() {
+      return (
+         <div className="TasksPage__tasks"></div>
+      );
    }
 
    renderCurrentTasks() {
       if (this.props.currentTaskList.length != 0) {
-         return (
-            <div className="TasksPage__tasks">
-               <FlipMove>
-                  {this.props.currentTaskList.map(task => this.returnTask(task))}
-               </FlipMove>
-            </div>
-         )
+         return this.showTasks();
       } else {
-         return (
-            <div className="TasksPage__tasks"></div>
-         );
+         return this.showEmptyField();
       }
    }
 
    toggleSearchedTask(searchedTasks) {
       if (searchedTasks) {
-         return this.renderSearchedTasks();
+         return this.renderSearchedTasks(searchedTasks);
       } else {
          return this.renderCurrentTasks();
       }
